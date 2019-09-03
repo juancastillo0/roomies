@@ -1,0 +1,35 @@
+body {
+    background: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 35px;
+    color: white;
+}
+
+#logo{
+    width: 50px;
+    height: 50px;
+    margin-right: 5%;
+}
+
+#menubar {
+  background: #222629;
+  box-shadow: 0 8px 6px -6px #6b6e70;
+}
+
+#messageboard {
+  border-right-style: solid;
+  border-left-style: solid;
+  border-color: #6b6e70;
+  border-width: 1px;
+}
+
+#btn-signin {
+    background-color: transparent;
+    color: #86c232;
+    border-color: #86c232;
+    font-family: 'Lato', sans-serif;
+}
