@@ -8,9 +8,9 @@ class Message extends React.Component{
   render() {
 
     return(
-    <div className="card text-left msg-card"> 
+    <div id="msgcard" className="card text-left msg-card"> 
       <img className="card-img-top" src={this.props.movie.imgsrc} alt={this.props.movie.imgalt}/>
-      <div className="card-body">
+      <div id="msgcardbody" className="card-body">
         <h4 className="card-title">{this.props.movie.title}</h4>
         <p className="card-text">{this.props.movie.body}</p>
       </div>
@@ -18,4 +18,4 @@ class Message extends React.Component{
     )};
 }
 
-export default Message; 
+export default Message;  
