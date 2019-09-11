@@ -1,9 +1,19 @@
 import React, { Component } from "react";
+import "./Vaca.css";
 
 class Vaca extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      deudaVaca: 405200
+    };
+  }
   render() {
-    return <h1>Aqui va la interfaz de vaca</h1>;
+    return (
+      <div id="financial-container">
+        <h1 id="numVaca">$ {this.state.deudaVaca}</h1>
+      </div>
+    );
   }
 }
 
