@@ -1,0 +1,17 @@
+#postrow {
+  margin: 15px;
+}
+
+#posttextbox{
+  height: 80pt;
+  width: 80%;
+}
+
+#btn-ms{
+  width: 20pt;
+  border-radius: 50%;
+}
+
+.msg-card{
+  width: 85%;
+}

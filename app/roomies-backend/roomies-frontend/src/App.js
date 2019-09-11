@@ -15,15 +15,15 @@ class App extends Component {
         </header>
 
         <main>
-          <div class="container-fluid" id="homecontainer">
-            <div class="row">
-              <div class="col-3">
+          <div className="container-fluid" id="homecontainer">
+            <div className="row">
+              <div className="col-3">
                 <Menu />
               </div>
-              <div class="col-6" id="messageboard">
+              <div className="col-6" id="messageboard">
                 <MessageBoard />
               </div>
-              <div class="col-3">
+              <div className="col-3">
                 <Vaca />
               </div>
             </div>
