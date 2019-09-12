@@ -1,6 +1,8 @@
 import React from 'react';
 import "./MessageBoard.css";
 
+
+
 class Postbox extends React.Component {
   constructor(props){
     super(props);
@@ -13,7 +15,7 @@ class Postbox extends React.Component {
    this.handleTodoBox = this.handleTodoBox.bind(this);
 
    this.state = {
-     add: 2,
+     add: 1,
      postbox: this.msgBox()
    }
    
@@ -24,8 +26,8 @@ class Postbox extends React.Component {
        
   return (
   <div className="row" id = "postrow">
-     <div className="btn-group-vertical col-2" role="group" aria-label="Type of Message">
-       <button type="button" onClick={this.handleMsgBox} className="btn btn-dark btn-post btn-sm" id="btn-msg">Message</button>
+     <div className="btn-group-vertical col-2" role="group" aria-label="Type of Message"> 
+       <button type="button" onClick={this.handleMsgBox} className="btn btn-dark btn-post btn-sm" id="btn-msg" >Message</button>
        <button type="button" onClick={this.handlePaymntBox} className="btn btn-dark btn-post btn-sm" id="btn-paymnt">Pay Update</button>
        <button type="button" onClick={this.handleTodoBox} className="btn btn-dark btn-post btn-sm" id="btn-todo">To-Do</button>
     </div>
@@ -117,7 +119,7 @@ class Postbox extends React.Component {
   
   handlePaymntBox(){
     this.setState({
-      add: 2,
+      add: 1,
       postbox: this.paymntBox()
     });
   }

@@ -1,12 +1,16 @@
 import React from 'react';
 
+
 class Message extends React.Component{
   constructor(props){
     super(props);
   }
-  
+/*
+  chooseImg(){
+    return this.props.movie.type === 1 ? MsgPhoto : this.props.move.type === 2 ? PaymntPhoto : TodoPhoto ;
+  };
+*/  
   render() {
-
     return(
     <div className="card text-left msg-card"> 
       <div class="msg-img-cover">
