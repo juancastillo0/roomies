@@ -8,6 +8,7 @@
 }
 #messageboard{
   background-color: var(--clr-1);
+  margin-top: 75px;
 }
 
 .msg-card{

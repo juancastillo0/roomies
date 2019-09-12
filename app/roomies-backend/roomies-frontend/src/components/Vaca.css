@@ -1,5 +1,7 @@
 #financial-container {
     text-align: center;
+    position: fixed;
+    margin-top: 75px;
 }
 
 #numVaca {

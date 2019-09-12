@@ -25,5 +25,5 @@
 
 #menubar {
   background: #222629;
-  box-shadow: 0 8px 6px -6px #6b6e70;
+  border-bottom: solid #6B6E70 1px;
 }

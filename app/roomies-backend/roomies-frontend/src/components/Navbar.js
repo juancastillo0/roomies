@@ -13,7 +13,7 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-fixed-top" id="menubar">
+      <nav className="navbar fixed-top" id="menubar">
         <a className="navbar-brand" href="/#">
           <img
             src={Logo}
