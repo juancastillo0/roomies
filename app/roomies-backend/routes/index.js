@@ -13,7 +13,7 @@ const getMovies = resolve => {
       console.log("Error occurred while connecting to MongoDB Atlas...\n", err);
     }
 
-    console.log("Connected to mongo atlas...");
+    console.log("Connected to  mongo atlas...");
   });
 
   const db = client.db("sample_mflix");

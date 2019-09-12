@@ -1,7 +1,10 @@
 :root{
-  --clr-1: rgb(0, 26, 37);
-  --clr-2: rgb(0, 37, 53);
-  --clr-3: rgb(1, 77, 139);
+  --clr-1: #222629;
+  --clr-2: #474B4F;
+  --clr-3: #6B6E70;
+  --clr-4: #61892F;
+  --clr-5: #86C232;
+
 }
 #messageboard{
   background-color: var(--clr-1);
@@ -23,6 +26,9 @@
 
 #posttextbox{
   height: 80pt;
+  color:rgb(179, 179, 179); 
+  border-style: none;
+  background-color: #474B4F;
 }
 
 .btn-post{
@@ -49,7 +55,7 @@
 }
 #todobox{
   /*Appearance*/
-  background-color: var(--clr-3);
+  background-color: var(--clr-2);
   border-style: none;
   color: rgb(165, 179, 179);
 
@@ -96,14 +102,16 @@
   -moz-box-sizing: border-box;
 }
 
-#btn-msg:hover{
-  background-color: rgb(4, 10, 41)
+#btn-msg:hover, #btn-paymnt:hover{
+  transition-duration: 500ms;
+  background-color: var(--clr-5);
 }
 #btn-todo:hover{
-  background-color: rgb(0, 15, 0)
+  transition-duration: 500ms;
+  background-color: var(--clr-5);
 }
 #btn-paymnt:hover{
-  background-color: rgb(22, 1, 1)
+  background-color: var(--clr-5);
 }
 
 .msg-card{

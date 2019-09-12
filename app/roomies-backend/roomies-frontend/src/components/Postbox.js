@@ -38,7 +38,7 @@ class Postbox extends React.Component {
     </div>
   </div>
   );
-  }
+  } 
 
  
 
@@ -58,7 +58,7 @@ class Postbox extends React.Component {
           <div className="row">
             <button type="button" onClick={this.handleAdd} className="btn btn-success" id="btn-add"> + </button>
             <button type="button" onClick={this.handleSub} className="btn btn-danger" id="btn-add"> - </button>
-            <input type="text" style={{backgroundColor: this.state.add === 0 ? "rgb(73, 190, 92)" : this.state.add === 2? "white" : "rgb(202, 66, 66)"}} id="moneybox" placeholder="$$$"></input>
+            <input type="text" style={{backgroundColor: this.state.add === 0 ? "rgb(73, 190, 92)" : this.state.add === 2? "white" : "rgb(202, 66, 66)"}} id="moneybox" placeholder="        $$$"></input>
           </div>       
         </div>
         <div className="col-9"> 
@@ -94,23 +94,32 @@ class Postbox extends React.Component {
   }
 
   handleAdd(){
-    this.setState({add: 0});
+    this.setState({
+      add: 1,
+      postbox: this.paymntBox()
+    });
   }
 
   handleSub(){
-    this.setState({add: 1});
-  }
+    this.setState({
+      add: 0,
+      postbox: this.paymntBox()
+    });
+  } 
 
   handleMsgBox(){
-    this.setState({postbox: this.msgBox()})
+    this.setState({postbox: this.msgBox()});
   }
 
   handleTodoBox(){
-    this.setState({postbox: this.todoBox()})
+    this.setState({postbox: this.todoBox()});
   }
   
   handlePaymntBox(){
-    this.setState({postbox: this.paymntBox()})
+    this.setState({
+      add: 2,
+      postbox: this.paymntBox()
+    });
   }
 
 
