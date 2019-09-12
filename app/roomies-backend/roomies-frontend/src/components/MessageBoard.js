@@ -49,7 +49,9 @@ class MessageBoard extends Component {
     return (
       <div id="messageboard">
         <Postbox roomname={this.state.movies[0].title}/>
-        {this.renderMessages()}
+          <div id="cards-container">
+            {this.renderMessages()}
+          </div>
         </div>
     );
   }

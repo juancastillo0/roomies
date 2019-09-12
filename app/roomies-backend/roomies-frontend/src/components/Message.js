@@ -8,11 +8,15 @@ class Message extends React.Component{
   render() {
 
     return(
-    <div id="msgcard" className="card text-left msg-card"> 
-      <img className="card-img-top" src={this.props.movie.imgsrc} alt={this.props.movie.imgalt}/>
-      <div id="msgcardbody" className="card-body">
+    <div className="card text-left msg-card"> 
+      <div class="msg-img-cover">
+        <img className="card-img-top msg-img" src={this.props.movie.imgsrc} alt={this.props.movie.imgalt}/>
+      </div>
+      <div className="card-body msgcardbody">
         <h4 className="card-title">{this.props.movie.title}</h4>
         <p className="card-text">{this.props.movie.body}</p>
+        <a href="#" class="card-link">💚</a>
+        <a href="#" class="card-link">✅</a>
       </div>
     </div>
     )};

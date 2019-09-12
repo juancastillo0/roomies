@@ -10,18 +10,29 @@
   background-color: var(--clr-1);
 }
 
-#msgcard{
+.msg-card{
   background-color: var(--clr-2);
+  box-sizing: border-box;
+  margin: 3em;
 }
 
-#msgcardbody{
+.msg-img-cover{
+  max-height: 140px;
+  overflow: hidden;
+}
+
+.msgcardbody{
   color: azure;
   background-color: var(--clr-3);
 }
 
 #postrow {
-  margin: 30pt;
-  height:100pt;;
+  margin-left: 5em;
+  height:100pt;
+}
+
+#cards-container{
+  margin: 3em;
 }
 
 #posttextbox{
@@ -35,6 +46,9 @@
   margin: 5pt;
   height: 30%;
 
+}
+
+#postbox{
 }
 
 #btn-add{
@@ -72,10 +86,10 @@
   /*Positioning*/
   resize: none;
   width: 100%;
-  height: 100%;
+  height: 88px;
   margin-left: 1em;
   margin-right:1em;
-  margin-top: 0.5em;
+  margin-top: 0.2em;
   box-sizing: border-box;
   -webkit-box-sizing:border-box;
   -moz-box-sizing: border-box;
