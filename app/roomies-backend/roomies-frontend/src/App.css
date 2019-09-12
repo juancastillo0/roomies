@@ -1,0 +1,11 @@
+:root{
+    --clr-1: #222629;
+    --clr-2: #474B4F;
+    --clr-3: #6B6E70;
+    --clr-4: #61892F;
+    --clr-5: #86C232;
+}
+
+#financialcontainer {
+    background: var(--clr-1);
+}

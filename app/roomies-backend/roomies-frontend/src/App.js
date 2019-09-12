@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
 import MessageBoard from "./components/MessageBoard";
-import Vaca from "./components/Vaca";
+import FinancialBoard from "./components/FinancialBoard";
 
 import "./App.css";
 
@@ -23,8 +23,8 @@ class App extends Component {
               <div className="col-5" id="messageboard">
                 <MessageBoard />
               </div>
-              <div className="col">
-                <Vaca />
+              <div className="col" id="financialcontainer">
+                <FinancialBoard />
               </div>
             </div>
           </div>
