@@ -5,14 +5,26 @@ class FinancialBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      debt: 405200
+      debt: 400000
     };
   }
+
+  toMoney(debt) {
+    if (debt.length) {
+    }
+  }
+
   render() {
     return (
-      <div id="financial-container">
-        <h1>Debt:</h1>
-        <h1 id="debt">$ {this.state.debt}</h1>
+      <div id="debt-container">
+        <div className="card text-center" id="debt-card">
+          <div className="card-body">
+            <h3 className="card-title">Debt</h3>
+            <h1 className="card-text" id="debt">
+              {this.state.debt.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+            </h1>
+          </div>
+        </div>
       </div>
     );
   }

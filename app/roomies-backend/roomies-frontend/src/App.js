@@ -15,7 +15,7 @@ class App extends Component {
         </header>
 
         <main>
-          <div className="container-fluid" id="homecontainer">
+          <div className="container-fluid" id="menucontainer">
             <div className="row">
               <div className="col">
                 <Menu />
