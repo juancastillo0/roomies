@@ -15,7 +15,7 @@ class Message extends React.Component{
     return(
     <div className="card text-left msg-card"> 
       <div class="msg-img-cover">
-        <img className="card-img-top msg-img" src={this.chooseImg()} alt={this.props.movie.imgalt}/>
+        <img className="card-img-top msg-img" id="" src={this.chooseImg()} alt={this.props.movie.imgalt}/>
       </div>
       <div className="card-body msgcardbody">
         <h4 className="card-title">{this.props.movie.title}</h4>
@@ -25,6 +25,10 @@ class Message extends React.Component{
       </div>
     </div>
     )};
+
+    agregarImgId(){
+      return this.props.movie.type === 1 ? MsgPhoto : this.props.movie.type === 2 ? PaymntPhoto : TodoPhoto;
+    }
 
     chooseImg(){
       return this.props.movie.type === 1 ? MsgPhoto : this.props.movie.type === 2 ? PaymntPhoto : TodoPhoto ;

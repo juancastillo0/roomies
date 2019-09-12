@@ -6,6 +6,8 @@
   --clr-5: #86C232;
 
   --clr-6: #1f2325;
+  --clr-7: rgb(57, 60, 63);
+
 
 
 }
@@ -13,6 +15,10 @@
   background-color: var(--clr-1);
   margin-top: 40px;
   padding:0;
+  border-left: solid;
+  border-right: solid;
+  border-color: var(--clr-7);
+  border-width: 1px;
 }
 
 .msg-card{
@@ -27,7 +33,7 @@
 }
 
 .msg-img{
-  margin-top: -30%;
+  margin-top: -55%;
 }
 
 .msg-img-cover{
