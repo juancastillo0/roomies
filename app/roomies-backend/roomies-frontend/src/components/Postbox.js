@@ -26,8 +26,8 @@ class Postbox extends React.Component {
   <div className="row" id = "postrow">
      <div className="btn-group-vertical col-2" role="group" aria-label="Type of Message">
        <button type="button" onClick={this.handleMsgBox} className="btn btn-dark btn-post btn-sm" id="btn-msg">Message</button>
-       <button type="button" onClick={this.handleTodoBox} className="btn btn-dark btn-post btn-sm" id="btn-paymnt">Pay Update</button>
-       <button type="button" onClick={this.handlePaymntBox} className="btn btn-dark btn-post btn-sm" id="btn-todo">To-Do</button>
+       <button type="button" onClick={this.handlePaymntBox} className="btn btn-dark btn-post btn-sm" id="btn-paymnt">Pay Update</button>
+       <button type="button" onClick={this.handleTodoBox} className="btn btn-dark btn-post btn-sm" id="btn-todo">To-Do</button>
     </div>
     <div id="postbox" className="form-group col-6">
       <label htmlFor="postbox"></label>
