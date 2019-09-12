@@ -17,13 +17,13 @@ class App extends Component {
         <main>
           <div className="container-fluid" id="homecontainer">
             <div className="row">
-              <div className="col-3">
+              <div className="col">
                 <Menu />
               </div>
-              <div className="col-6" id="messageboard">
+              <div className="col-5" id="messageboard">
                 <MessageBoard />
               </div>
-              <div className="col-3">
+              <div className="col">
                 <Vaca />
               </div>
             </div>

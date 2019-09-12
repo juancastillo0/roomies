@@ -8,13 +8,15 @@
 }
 #messageboard{
   background-color: var(--clr-1);
-  margin-top: 75px;
+  margin-top: 40px;
+  padding:0;
 }
 
 .msg-card{
   background-color: var(--clr-2);
   box-sizing: border-box;
-  margin: 3em;
+  margin: 1em;
+  margin-left: 3em;
 }
 
 .msg-img-cover{
@@ -28,15 +30,12 @@
 }
 
 #postrow {
-  position:fixed;
-  top: 0;
-  z-index: 100;
-  margin-left: 5em;
-  height:100pt;
+  margin: 0 auto;
+  height:180px;
 }
 
 #cards-container{
-  margin: 3em;
+  margin: 0 auto;
 }
 
 #posttextbox{
@@ -49,10 +48,12 @@
 .btn-post{
   margin: 5pt;
   height: 30%;
+  max-height: 40px;
 
 }
 
 #postbox{
+  width: 200px;
 }
 
 #btn-add{
@@ -105,6 +106,15 @@
   margin-top: 50%;
 }
 
+#div-submit{
+  padding: 0;
+}
+
+#postcolumn{
+  padding:0;
+  margin:0;
+}
+
 #moneybox{
   /* Appearance */
   border-radius: 5% 5% 5% 5%;
@@ -130,6 +140,15 @@
 }
 #btn-paymnt:hover{
   background-color: var(--clr-5);
+}
+
+#payment-btncolumn{
+  padding: 0;
+  margin:1em;
+}
+
+.no-padding{
+  padding:0;
 }
 
 .msg-card{
