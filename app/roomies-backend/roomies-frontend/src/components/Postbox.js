@@ -5,21 +5,33 @@ class Postbox extends React.Component {
   constructor(props){
     super(props);
 
-   // this.handlePostboxChange = this.handlePostboxChange.bind(this);
+   this.handleAdd = this.handleAdd.bind(this);
+   this.handleSub = this.handleSub.bind(this);
 
+   this.handleMsgBox = this.handleMsgBox.bind(this);
+   this.handlePaymntBox = this.handlePaymntBox.bind(this);
+   this.handleTodoBox = this.handleTodoBox.bind(this);
 
+   this.state = {
+     add: 2,
+     postbox: this.msgBox()
+   }
+   
+   
   }
+
   render(){
+       
   return (
   <div className="row" id = "postrow">
      <div className="btn-group-vertical col-2" role="group" aria-label="Type of Message">
-       <button type="button" onClick={this.handlePostboxChange.bind(this)} className="btn btn-dark btn-post btn-sm" id="btn-msg">Message</button>
-       <button type="button" className="btn btn-dark btn-post btn-sm" id="btn-paymnt">Pay Update</button>
-       <button type="button" className="btn btn-dark btn-post btn-sm" id="btn-todo">To-Do</button>
+       <button type="button" onClick={this.handleMsgBox} className="btn btn-dark btn-post btn-sm" id="btn-msg">Message</button>
+       <button type="button" onClick={this.handleTodoBox} className="btn btn-dark btn-post btn-sm" id="btn-paymnt">Pay Update</button>
+       <button type="button" onClick={this.handlePaymntBox} className="btn btn-dark btn-post btn-sm" id="btn-todo">To-Do</button>
     </div>
     <div id="postbox" className="form-group col-6">
       <label htmlFor="postbox"></label>
-      {this.todoBox()}
+      {this.state.postbox}
     </div>
     <div className="col-2">
       <button type="button" className="btn btn-success center-block btn-lg" id="btn-submit">Send!</button>
@@ -27,6 +39,8 @@ class Postbox extends React.Component {
   </div>
   );
   }
+
+ 
 
   msgBox(){
     return(
@@ -39,16 +53,18 @@ class Postbox extends React.Component {
 
   paymntBox(){
     return(
-      <div class="row"> 
+      <div className="row"> 
         <div className="col-3">
           <div className="row">
-            <button type="button" className="btn btn-success" id="btn-add"> + </button>
-            <button type="button" className="btn btn-danger" id="btn-add"> - </button>
-            <input type="text" id="moneybox" placeholder="$$$"></input>
+            <button type="button" onClick={this.handleAdd} className="btn btn-success" id="btn-add"> + </button>
+            <button type="button" onClick={this.handleSub} className="btn btn-danger" id="btn-add"> - </button>
+            <input type="text" style={{backgroundColor: this.state.add === 0 ? "rgb(73, 190, 92)" : this.state.add === 2? "white" : "rgb(202, 66, 66)"}} id="moneybox" placeholder="$$$"></input>
           </div>       
         </div>
         <div className="col-9"> 
           <input type="text" className="form-control" id="posttextbox" aria-describedby="helpId" placeholder="..."/>
+          <small id="helpId" className="form-text text-muted">Description of {this.state.add === 0? "payment" : "new debt" }</small>  
+
         </div>
       </div>
     );
@@ -76,6 +92,28 @@ class Postbox extends React.Component {
   handlePostboxChange(){
     console.log("this is ", this);
   }
+
+  handleAdd(){
+    this.setState({add: 0});
+  }
+
+  handleSub(){
+    this.setState({add: 1});
+  }
+
+  handleMsgBox(){
+    this.setState({postbox: this.msgBox()})
+  }
+
+  handleTodoBox(){
+    this.setState({postbox: this.todoBox()})
+  }
+  
+  handlePaymntBox(){
+    this.setState({postbox: this.paymntBox()})
+  }
+
+
 
 }
 

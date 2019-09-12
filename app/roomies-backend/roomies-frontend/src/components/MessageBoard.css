@@ -17,7 +17,7 @@
 }
 
 #postrow {
-  margin: 15px;
+  margin: 30pt;
   height:100pt;;
 }
 
@@ -52,7 +52,6 @@
   background-color: var(--clr-3);
   border-style: none;
   color: rgb(165, 179, 179);
-  
 
 
   /*Positioning*/  
