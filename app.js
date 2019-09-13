@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join("./roomies-frontend/build")));
 
 app.get("/*", function(req, res) {
-  res.sendFile(path.join("/roomies-frontend/build", "index.html"));
+  res.sendFile(path.join("roomies-frontend/build", "index.html"));
 });
 
 app.use("/", indexRouter);
