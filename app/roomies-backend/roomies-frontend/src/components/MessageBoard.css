@@ -44,6 +44,27 @@
   margin-top: -30%;
 }
 
+.btn-reaction{
+  height: 20px;
+  width: 20px;
+  background-color: var(--clr-1);
+  border:none;
+  background-size: 100%;
+}
+
+#reaction-row{
+  margin-left: 1%;
+}
+
+.reaction-date{
+  color:var(--clr-2);
+  font-size: 11pt;
+}
+
+.reaction-margin{
+  margin-left: 3%;
+}
+
 .msg-img-cover{
   max-height: 70px;
   overflow: hidden;
@@ -61,6 +82,8 @@
 
 #postrow {
   margin: 0 auto;
+  margin-left: 2em;
+  padding-bottom: 30pt;
   height:180px;
 }
 
@@ -69,10 +92,16 @@
 }
 
 #posttextbox{
-  height: 80pt;
+  padding-bottom: 0;
+  margin-top: 8pt;
+  min-height: 20pt;
+  max-height: 80pt;
   color:rgb(179, 179, 179); 
   border-style: none;
   background-color: #474B4F;
+  overflow: hidden;
+
+  word-wrap: normal;
 }
 
 .btn-post{
@@ -133,7 +162,7 @@
   border-style:none;
 
   /*Positioning*/
-  resize: none;
+  resize: vertical;
   width: 100%;
   height: 88px;
   margin-left: 1em;
@@ -146,8 +175,14 @@
 
 
 #btn-submit{
+  margin-top: 40%;
+  height: 50px;
+  width: 50px;
   size: 100%;
-  margin-top: 50%;
+  background-color: var(--clr-1);
+  border:none;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 #div-submit{
@@ -155,8 +190,8 @@
 }
 
 #postcolumn{
-  padding:0;
-  margin:0;
+  height:65px;
+  margin-left: 20px;;
 }
 
 #moneybox{
@@ -172,18 +207,6 @@
   box-sizing: border-box;
   -webkit-box-sizing:border-box;
   -moz-box-sizing: border-box;
-}
-
-#btn-msg:hover, #btn-paymnt:hover{
-  transition-duration: 500ms;
-  background-color: var(--clr-5);
-}
-#btn-todo:hover{
-  transition-duration: 500ms;
-  background-color: var(--clr-5);
-}
-#btn-paymnt:hover{
-  background-color: var(--clr-5);
 }
 
 #payment-btncolumn{

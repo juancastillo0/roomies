@@ -1,8 +1,10 @@
 import React from 'react';
 import "./MessageBoard.css";
 import todoicon from '../images/todo.png';
-import msgicon from '../images/todo.png';
-import paymnticon from '../images/todo.png';
+import msgicon from '../images/msg.png';
+import paymnticon from '../images/paymnt.png';
+import submit from '../images/submit.png';
+
 
 
 
@@ -32,17 +34,16 @@ class Postbox extends React.Component {
   <div className="row" id = "postrow">
 
     <div id="postbox" className="form-group col-10">
-      <label htmlFor="postbox"></label>
       {this.state.postbox}
       
     </div>
     <div className="col-2" id="div-submit">
-      <button type="button" className="btn btn-success center-block btn-lg" id="btn-submit">Send!</button>
+      <button type="button" style={{backgroundImage: `url(${submit})`}} className="" id="btn-submit"></button>
     </div>
-    <div className="btn-group row" role="group" id="postcolumn" aria-label="Type of Message"> 
-       <button type="button" onClick={this.handleMsgBox} className="btn-post" id="btn-msg" >Message</button>
-       <button type="button" onClick={this.handlePaymntBox} className="btn-post" id="btn-paymnt">Pay Update</button>
-       <button type="button" onClick={this.handleTodoBox} className="btn-post" id="btn-todo">To-Do</button>
+    <div className="btn-group row"  role="group" id="postcolumn" aria-label="Type of Message"> 
+       <button type="button" style={{backgroundImage: `url(${msgicon})`}} onClick={this.handleMsgBox} className="btn-post btn-reaction" id="btn-msg" ></button>
+       <button type="button" style={{backgroundImage: `url(${paymnticon})`}} onClick={this.handlePaymntBox} className="btn-post btn-reaction" id="btn-paymnt"></button>
+       <button type="button" style={{backgroundImage: `url(${todoicon})`}} onClick={this.handleTodoBox} className="btn-post btn-reaction" id="btn-todo"></button>
     </div>
     
   </div>
@@ -54,7 +55,7 @@ class Postbox extends React.Component {
   msgBox(){
     return(
       <>
-        <input type="text" className="form-control" name="" id="posttextbox" aria-describedby="helpId" placeholder="..."/>
+        <textarea className="form-control" name="" id="posttextbox" aria-describedby="helpId" placeholder="..." />
       </>
     );
   }

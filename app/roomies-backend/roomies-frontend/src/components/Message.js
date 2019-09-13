@@ -3,6 +3,9 @@ import TodoPhoto from '../images/todo_img.jpg';
 import PaymntPhoto from '../images/paymnt_img.jpg';
 import MsgPhoto from '../images/msg_img.jpg';
 import like from '../images/like.png';
+import seen from '../images/seen.png';
+
+
 
 
 
@@ -21,8 +24,6 @@ class Message extends React.Component{
       <div className="card-body msgcardbody">
         <h4 className="card-title">{this.props.movie.title}</h4>
         {this.choose_mod()}
-        <a href="#" class="card-link" >💚\</a>
-        <a href="#" class="card-link">✅</a>
       </div>
     </div>
     )};
@@ -36,10 +37,17 @@ class Message extends React.Component{
     };
 
   msg_mod(){
+    var likebtn = {
+      backgroundImage: 'url(' + like + ')'
+    };
     return (
     <>
       <p>{this.props.movie.body}</p>
-      <div class="card-footer text-muted">{this.props.movie.body.date}</div>
+      <div class="row" id="reaction-row">
+        <button type="button" style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" ></button>
+        <button type="button" style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" ></button>
+        <p class="reaction-date reaction-margin">  {this.props.movie.date} </p>
+      </div>
     </>
     )
   }
@@ -51,8 +59,12 @@ class Message extends React.Component{
             <h2 style={{color: this.props.movie.body.action === "added"?"rgb(73, 190, 92)":"rgb(202, 66, 66)"}}> {this.color_paymnt()} </h2>
         </div> 
         <p className="card-text">{this.props.movie.body.description}</p>
-        <div class="card-footer text-muted">{this.props.movie.body.date}</div>
-      </>
+        <div class="row" id="reaction-row">
+          <button type="button" style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" ></button>
+          <button type="button" style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" ></button>
+          <p class="reaction-date reaction-margin">  {this.props.movie.date} </p>
+      </div>
+       </>
     );
   }
 
@@ -80,7 +92,11 @@ class Message extends React.Component{
           {this.showTodos()}
         </div> 
         <p className="card-text">{this.props.movie.body.description}</p>
-        <div class="card-footer text-muted">{this.props.movie.body.date}</div>
+        <div class="row" id="reaction-row">
+          <button type="button" style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" ></button>
+          <button type="button" style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" ></button>
+          <p class="reaction-date reaction-margin">  {this.props.movie.date} </p>
+        </div>
       </>
     );
   }
