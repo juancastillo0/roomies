@@ -72,18 +72,20 @@ class FinancialBoard extends Component {
             data-parent="#bills-accordion"
           >
             <div className="card-body">
-              <div className="card-footer" id="bill-card-footer">
-                <div className="row">
-                  <div className="col-8">{bill.expdate}</div>
-                  <div className="col">
-                    <button
-                      type="button"
-                      className="btn btn-success"
-                      id="btn-pay-bill"
-                    >
-                      Pay
-                    </button>
+              <div className="row">
+                <div className="col-8">
+                  <div className="card-footer" id="bill-card-footer">
+                    {bill.expdate}
                   </div>
+                </div>
+                <div className="col">
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    id="btn-pay-bill"
+                  >
+                    Pay
+                  </button>
                 </div>
               </div>
             </div>
