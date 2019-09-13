@@ -2,6 +2,7 @@ import React from 'react';
 import TodoPhoto from '../images/todo_img.jpg';
 import PaymntPhoto from '../images/paymnt_img.jpg';
 import MsgPhoto from '../images/msg_img.jpg';
+import like from '../images/like.png';
 
 
 
@@ -15,19 +16,19 @@ class Message extends React.Component{
     return(
     <div className="card text-left msg-card"> 
       <div class="msg-img-cover">
-        <img className="card-img-top msg-img" id="" src={this.chooseImg()} alt={this.props.movie.imgalt}/>
+        <img className="card-img-top msg-img" id={this.agregarImgId()} src={this.chooseImg()} alt={this.props.movie.imgalt}/>
       </div>
       <div className="card-body msgcardbody">
         <h4 className="card-title">{this.props.movie.title}</h4>
         {this.choose_mod()}
-        <a href="#" class="card-link">💚</a>
+        <a href="#" class="card-link" >💚\</a>
         <a href="#" class="card-link">✅</a>
       </div>
     </div>
     )};
 
     agregarImgId(){
-      return this.props.movie.type === 1 ? MsgPhoto : this.props.movie.type === 2 ? PaymntPhoto : TodoPhoto;
+      return this.props.movie.type === 1 ? "msgImg" : this.props.movie.type === 2 ? "paymntImg" : "todoImg";
     }
 
     chooseImg(){

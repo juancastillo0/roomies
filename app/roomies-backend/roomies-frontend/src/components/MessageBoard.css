@@ -32,8 +32,16 @@
   background-color: var(--clr-1);
 }
 
-.msg-img{
+.msg-img#paymntImg{
   margin-top: -55%;
+}
+
+.msg-img#todoImg{
+  margin-top: -35%;
+}
+
+.msg-img#msgImg{
+  margin-top: -30%;
 }
 
 .msg-img-cover{
@@ -76,6 +84,7 @@
 
 #postbox{
   width: 200px;
+  margin-bottom: 2px;
 }
 
 #btn-add{

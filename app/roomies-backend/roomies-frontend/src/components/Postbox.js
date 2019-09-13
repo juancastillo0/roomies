@@ -1,5 +1,9 @@
 import React from 'react';
 import "./MessageBoard.css";
+import todoicon from '../images/todo.png';
+import msgicon from '../images/todo.png';
+import paymnticon from '../images/todo.png';
+
 
 
 
@@ -26,18 +30,21 @@ class Postbox extends React.Component {
        
   return (
   <div className="row" id = "postrow">
-     <div className="btn-group-vertical col-2" role="group" id="postcolumn" aria-label="Type of Message"> 
-       <button type="button" onClick={this.handleMsgBox} className="btn btn-dark btn-post btn-sm" id="btn-msg" >Message</button>
-       <button type="button" onClick={this.handlePaymntBox} className="btn btn-dark btn-post btn-sm" id="btn-paymnt">Pay Update</button>
-       <button type="button" onClick={this.handleTodoBox} className="btn btn-dark btn-post btn-sm" id="btn-todo">To-Do</button>
-    </div>
-    <div id="postbox" className="form-group col-8">
+
+    <div id="postbox" className="form-group col-10">
       <label htmlFor="postbox"></label>
       {this.state.postbox}
+      
     </div>
     <div className="col-2" id="div-submit">
       <button type="button" className="btn btn-success center-block btn-lg" id="btn-submit">Send!</button>
     </div>
+    <div className="btn-group row" role="group" id="postcolumn" aria-label="Type of Message"> 
+       <button type="button" onClick={this.handleMsgBox} className="btn-post" id="btn-msg" >Message</button>
+       <button type="button" onClick={this.handlePaymntBox} className="btn-post" id="btn-paymnt">Pay Update</button>
+       <button type="button" onClick={this.handleTodoBox} className="btn-post" id="btn-todo">To-Do</button>
+    </div>
+    
   </div>
   );
   } 
@@ -48,7 +55,6 @@ class Postbox extends React.Component {
     return(
       <>
         <input type="text" className="form-control" name="" id="posttextbox" aria-describedby="helpId" placeholder="..."/>
-        <small id="helpId" className="form-text text-muted">Post something to {this.props.roomname}</small>  
       </>
     );
   }
@@ -65,8 +71,6 @@ class Postbox extends React.Component {
         </div>
         <div className="col-9" id="paymnt-box"> 
           <input type="text" className="form-control" id="posttextbox" aria-describedby="helpId" placeholder="..."/>
-          <small id="helpId" className="form-text text-muted">Description of {this.state.add === 0? "payment" : "new debt" }</small>  
-
         </div>
       </div>
     );
