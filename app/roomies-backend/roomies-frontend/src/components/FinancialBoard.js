@@ -6,19 +6,100 @@ class FinancialBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      debt: 400000,
       bills: [
         {
-          name: "bill",
-          value: 0
+          name: "Water",
+          value: 150000,
+          expdate: "12/09/2019"
+        },
+        {
+          name: "Light",
+          value: 35000,
+          expdate: "12/09/2019"
+        },
+        {
+          name: "Food",
+          value: 45000,
+          expdate: "12/09/2019"
+        },
+        {
+          name: "Repairing",
+          value: 45000,
+          expdate: "12/09/2019"
+        },
+        {
+          name: "Fix",
+          value: 45000,
+          expdate: "12/09/2019"
         }
       ]
     };
   }
 
-  toMoney(debt) {
-    if (debt.length) {
-    }
+  toMoney(value) {
+    return value.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+  }
+
+  renderBills() {
+    return this.state.bills.map(bill => {
+      return (
+        <div
+          className="card"
+          data-toggle="collapse"
+          data-target={"#collapseOne" + bill.name}
+          aria-expanded="true"
+          aria-controls="collapseOne"
+          id="bill-card"
+        >
+          <div className="card-header" id="headingOne">
+            <div className="row">
+              <div className="col">
+                <h2 className="mb-0" id="bill-name">
+                  {bill.name}
+                </h2>
+              </div>
+              <div className="col-7">
+                <h2 className="mb-0" id="bill-value">
+                  {"( $" + this.toMoney(bill.value) + " )"}
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id={"collapseOne" + bill.name}
+            className="collapse"
+            aria-labelledby="headingOne"
+            data-parent="#bills-accordion"
+          >
+            <div className="card-body">
+              <div className="card-footer" id="bill-card-footer">
+                <div className="row">
+                  <div className="col-8">{bill.expdate}</div>
+                  <div className="col">
+                    <button
+                      type="button"
+                      className="btn btn-success"
+                      id="btn-pay-bill"
+                    >
+                      Pay
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
+
+  totalDebt() {
+    let debt = 0;
+    this.state.bills.map(bill => {
+      debt += bill.value;
+    });
+    return debt;
   }
 
   render() {
@@ -28,19 +109,14 @@ class FinancialBoard extends Component {
           <div className="card-body">
             <h3 className="card-title">Debt</h3>
             <h1 className="card-text" id="debt">
-              $ {this.state.debt.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+              $ {this.toMoney(this.totalDebt())}
             </h1>
           </div>
         </div>
         <div id="bills-container">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div className="row">
-                <img src={Clock} id="bill-status" />
-                <div className="col">Water ($5000)</div>
-              </div>
-            </li>
-          </ul>
+          <div className="accordion" id="bills-accordion">
+            {this.renderBills()}
+          </div>
         </div>
       </div>
     );

@@ -7,7 +7,7 @@
 #debt-card {
     background: #282c2f;
     border-radius: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .card-title {
@@ -15,20 +15,41 @@
 }
 
 #debt {
-    font-size: 3.5em;
+    font-size: 3.8vw;
     font-weight: 500;
     color: white;
-}
-
-#bills-container {
-    font-size: 22px;
-}
-
-#bill-value {
-    padding-left: 50px;
 }
 
 #bill-status{
     height: 30px;
     width: 30px;
+}
+
+#bill-card {
+    background: #282c2f;
+    color: white;
+}
+
+#btn-pay-bill {
+    background: transparent;
+    border-color: #86C232;
+    color:#86C232;
+}
+
+#btn-pay-bill:hover {
+    background: #86C232;
+    color: white;
+} 
+
+.card-footer#bill-card-footer {
+    background: #474B4F;
+    font-size: 1.5vw;
+}
+
+#bill-name{
+    font-size: 1.9vw;
+}
+
+#bill-value{
+    font-size: 1.9vw;
 }
