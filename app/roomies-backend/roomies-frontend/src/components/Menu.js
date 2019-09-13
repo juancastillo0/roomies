@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "../images/home.png";
 import Financial from "../images/financial.png";
 import Todo from "../images/todo.png";
+import MenuTodos from "./MenuTodos";
 import "./Menu.css";
 
 class Menu extends Component {
@@ -9,11 +10,11 @@ class Menu extends Component {
   render() {
     return (
       <div id="menu-container">
-        <div class="row">
-          <div class="col-4">
-            <div class="list-group" id="list-tab" role="tablist">
+        <div className="row">
+          <div className="col-4">
+            <div className="list-group" id="list-tab" role="tablist">
               <a
-                class="list-group-item list-group-item-action active"
+                className="list-group-item list-group-item-action active"
                 id="list-home-list"
                 data-toggle="list"
                 href="#home"
@@ -28,7 +29,7 @@ class Menu extends Component {
                 </div>
               </a>
               <a
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
                 id="list-home-list"
                 data-toggle="list"
                 href="#filter-financial"
@@ -37,16 +38,16 @@ class Menu extends Component {
               >
                 <div className="row">
                   <div className="col-2">
-                    <img src={Financial} className="" alt="" id="home-icon" />
+                    <img src={Financial} alt="" id="home-icon" />
                   </div>
                   <div className="col">Financial</div>
                 </div>
               </a>
               <a
-                class="list-group-item list-group-item-action"
+                className="list-group-item list-group-item-action"
                 id="list-home-list"
                 data-toggle="list"
-                href="#list-home"
+                href="#filter-todo"
                 role="tab"
                 aria-controls="home"
               >
@@ -59,6 +60,12 @@ class Menu extends Component {
               </a>
             </div>
           </div>
+        </div>
+        <div id="Todosbrand-container">
+          <h2 id="todos-brand">- - - - - - To-do List's - - - - - -</h2>
+        </div>
+        <div id="todos-container">
+          <MenuTodos />
         </div>
       </div>
     );
