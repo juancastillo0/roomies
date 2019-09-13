@@ -7,6 +7,7 @@
 #debt-card {
     background: #282c2f;
     border-radius: 10px;
+    margin-bottom: 40px;
 }
 
 .card-title {
@@ -17,4 +18,17 @@
     font-size: 3.5em;
     font-weight: 500;
     color: white;
+}
+
+#bills-container {
+    font-size: 22px;
+}
+
+#bill-value {
+    padding-left: 50px;
+}
+
+#bill-status{
+    height: 30px;
+    width: 30px;
 }
