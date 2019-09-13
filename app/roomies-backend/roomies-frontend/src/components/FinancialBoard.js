@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./FinancialBoard.css";
-import Clock from "../images/clock.png";
 
 class FinancialBoard extends Component {
   constructor(props) {
