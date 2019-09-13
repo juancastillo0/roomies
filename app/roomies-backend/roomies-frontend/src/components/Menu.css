@@ -10,7 +10,7 @@
     margin-bottom: 15px;
 }
 
-.list-group-item {
+#list-home-list {
     background: transparent;
     border-color: transparent;
     color: white;
@@ -20,7 +20,7 @@
     padding-bottom: 0%;
 }
 
-.list-group-item.active {
+#list-home-list.active {
     background: transparent;
     border-bottom-color: transparent;
     border-top-color: transparent;
@@ -30,7 +30,37 @@
     text-decoration-color: #86C232;
 }
 
-.list-group-item:hover {
+#list-home-list:hover {
     background: #474B4F;
     color: white;
+}
+
+#todos-container {
+    position: fixed;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 23%;
+}
+
+#todos-brand {
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.todolistmenu {
+    background: #474B4F;
+    color: white;
+    font-size: 1.3vw;
+    height: 6vh;
+}
+
+.todolistmenu:hover {
+    color: white;
+    text-decoration: none;
+    background: #86C232
+}
+
+.badge-pill {
+    background: #86C232;
 }

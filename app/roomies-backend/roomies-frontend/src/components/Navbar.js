@@ -23,7 +23,7 @@ class Navbar extends Component {
           />
           Roomies
         </a>
-        <div class="navbar-text" id="username-container">
+        <div className="navbar-text" id="username-container">
           <div className="row">
             <div className="col-auto">
               <img src={Avatar} alt="" id="avatar" />
