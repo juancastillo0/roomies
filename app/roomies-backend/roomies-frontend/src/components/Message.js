@@ -42,7 +42,7 @@ class Message extends React.Component{
     };
     return (
     <>
-      <p>{this.props.movie.body}</p>
+      <p>{this.props.movie.text}</p>
       <div class="row" id="reaction-row">
         <button type="button" style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" ></button>
         <button type="button" style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" ></button>
@@ -91,7 +91,7 @@ class Message extends React.Component{
         <div id="todo-mod">
           {this.showTodos()}
         </div> 
-        <p className="card-text">{this.props.movie.body.description}</p>
+        <p className="card-text">{this.props.movie.text}</p>
         <div class="row" id="reaction-row">
           <button type="button" style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" ></button>
           <button type="button" style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" ></button>

@@ -52,6 +52,30 @@
   background-size: 100%;
 }
 
+#some-padding{
+  margin-left: 0;
+  padding-right: 1em;
+}
+
+#moneycol{
+  padding-right: 0;
+}
+
+#moneybtncol{
+  padding-left: 0;
+}
+
+.btn-mode{
+  height: 20px;
+  width: 20px;
+  background-color: var(--clr-1);
+  border:none;
+  background-size: 100%;
+  margin: 0 auto;
+  margin-right: 1em;
+}
+
+
 #reaction-row{
   margin-left: 1%;
 }
@@ -83,7 +107,8 @@
 #postrow {
   margin: 0 auto;
   margin-left: 2em;
-  padding-bottom: 30pt;
+  margin-right: 2em;
+  margin-bottom: 2em;
   height:180px;
 }
 
@@ -94,34 +119,85 @@
 #posttextbox{
   padding-bottom: 0;
   margin-top: 8pt;
-  min-height: 20pt;
-  max-height: 80pt;
+  min-height: 60px;
+  max-height: 60px;
   color:rgb(179, 179, 179); 
   border-style: none;
-  background-color: #474B4F;
+  background-color: var(--clr-6);
   overflow: hidden;
 
   word-wrap: normal;
+  resize: none;
 }
 
-.btn-post{
-  margin: 5pt;
-  height: 30%;
-  max-height: 40px;
+#posttextboxmsg{
+  padding-bottom: 0;
+  margin-top: 8pt;
+  min-height: 100px;
+  max-height: 100px;
+  color:rgb(179, 179, 179); 
+  border-style: none;
+  background-color: var(--clr-6);
+  overflow: hidden;
 
+  word-wrap: normal;
+  resize: none;
 }
 
 #postbox{
   width: 200px;
   margin-bottom: 2px;
+  min-height:100px;
+  max-height: 100px;
+  
 }
 
-#btn-add{
-  width: 46%;
+.btn-add{
+  height:25px;
+  width: 25px;
   margin: 1pt;
+  margin-top:4pt;
   box-sizing: border-box;
   -webkit-box-sizing:border-box;
   -moz-box-sizing: border-box;
+
+  /*Appearance*/
+  border-radius: 50pt;
+  background-color:rgb(73, 190, 92);
+  border: none;
+}
+
+.btn-add#minus{
+  background-color:rgb(202, 66, 66);
+  margin-left: 10pt;
+}
+
+#todo-titlerow{
+  margin-right:3em;
+}
+
+
+
+#todo-titlebox{
+  width: 100%;
+  margin-left: 1em;
+  margin-right: 6.5em;
+  margin-bottom: 3px;
+  margin-top: 3pt;
+  display:block;
+  box-sizing: border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing: border-box;
+
+  /*Appearance*/
+  background-color: var(--clr-1);
+  border-radius: 8pt;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--clr-4);
+  color: white;
+
+
 }
 
 #todobox,#btn-addtodo{
@@ -134,13 +210,17 @@
 }
 #todobox{
   /*Appearance*/
-  background-color: var(--clr-2);
+  background-color: var(--clr-6);
   border-style: none;
   color: rgb(165, 179, 179);
 
 
   /*Positioning*/  
   height:90%;
+}
+
+#addtodocol{
+  padding-right: 10pt;
 }
 
 .linea-todo{
@@ -166,18 +246,35 @@
   width: 100%;
   height: 88px;
   margin-left: 1em;
-  margin-right:1em;
+  margin-right:3em;
   margin-top: 0.2em;
   box-sizing: border-box;
   -webkit-box-sizing:border-box;
   -moz-box-sizing: border-box;
+  resize: none;
+}
+
+#addtodorow{
+  padding-left: 0%;
+  margin-bottom: 0pt;
+}
+
+#btn-todoadd{
+  height: 25px;
+  width: 25px;
+  size: 100%;
+  background-color: var(--clr-1);
+  border:none;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-bottom: 3pt
 }
 
 
 #btn-submit{
-  margin-top: 40%;
-  height: 50px;
-  width: 50px;
+  margin-left: 20em;
+  height: 35px;
+  width: 35px;
   size: 100%;
   background-color: var(--clr-1);
   border:none;
@@ -190,19 +287,23 @@
 }
 
 #postcolumn{
-  height:65px;
-  margin-left: 20px;;
+  height:40px;
+  margin-left: 20px;
+  margin-top: 3pt;
+
 }
 
 #moneybox{
   /* Appearance */
-  border-radius: 5% 5% 5% 5%;
-  border-style: none;
+  border-radius: 15pt;
+  border-style: solid;
+  border-width: 1px;
+  background-color: var(--clr-6);
+  color: white;
 
 
   /* Positioning */
   width: 90%;
-  height: 3em;
   margin: 3pt;
   box-sizing: border-box;
   -webkit-box-sizing:border-box;
