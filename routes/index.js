@@ -14,6 +14,10 @@ client.connect(function(err, client) {
   console.log("Connected to mongo atlas...");
 });
 
+/**
+ * GET Debt
+ */
+
 router.get("/debt/:roomname/:user/", function(req, res, next) {
   const db = client.db("roomies");
   const bills = db.collection("bills");
@@ -26,5 +30,40 @@ router.get("/debt/:roomname/:user/", function(req, res, next) {
       res.json(data);
     });
 });
+
+/**
+ * GET Messages
+ */
+
+router.get("/:roomname/messages", (req, res) => {
+  const db = client.db("roomies");
+  const messages = db.collection("messages");
+
+  messages
+    .find({ roomname: req.params.roomname})
+    .toArray((err, data) => {
+      if(err) throw err;
+      
+      res.json(data);
+    })
+});
+
+/**
+ * Post Message
+ */
+
+router.post("/message/:roomname", (req,res) => {
+  const db = client.db("roomies");
+  const messages = db.collection("messages");
+  let _message = req.body;
+  messages.insertOne(_message, (err, result) => {
+    if(err) throw err;
+    
+    res.send("item agregado a la coleccion de mensajes.");
+  });
+});
+
+
+
 
 module.exports = router;

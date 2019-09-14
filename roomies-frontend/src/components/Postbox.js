@@ -31,19 +31,31 @@ class Postbox extends React.Component {
    this.handlePaymntTitleChange = this.handlePaymntTitleChange.bind(this);
    this.handlePaymntSubmit = this.handlePaymntSubmit.bind(this);
 
+   this.handleTodoAddBtnClick = this.handleTodoAddBtnClick.bind(this);
+   this.handleTodoAreaChange = this.handleTodoAreaChange.bind(this);
+   this.handleTodoDoneArea = this.handleTodoDoneArea.bind(this);
+   this.handleTodoTitleChange = this.handleTodoTitleChange.bind(this);
 
-
+   this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
+   this.postMsg = this.postMsg.bind(this);
+   this.redoTodoPrint = this.redoTodoPrint.bind(this);
+ 
    this.state = {
      add: 1,
      postbox: this.msgBox(),
-     msg: "",
+     temptodo: "",
+     todoprint: "",
+     text: "",
      date: "10/10/2010",
      body: {
        description: "",
        amount: "",
        action: "",
-              
-     }
+     },
+     todos: [{
+       item: "",
+       status: 0
+     }]
    }
    
    
@@ -84,22 +96,27 @@ class Postbox extends React.Component {
   }
 
   handleMsgChange(e){
-    this.setState({msg: e.target.value});
+    this.setState({text: e.target.value});
   }
 
   handleMsgModSubmit(){
 
-    let jon = {
+    let json = {
       type: 1,
+      roomname: this.props.roomname,
+      user: this.props.user,
+      like: 0,
+      seen: 0,
       text: this.state.msg,
       date: this.getDate()
     };
-    console.log(jon);
+    this.postMsg(JSON.stringify(json));
+
   }
 
   getDate(){
     let date = new Date();
-    return date.getDate + "/" + date.getMonth+ "/" +date.getFullYear;
+    return date.getDate() + "/" + date.getMonth() + "/" +date.getFullYear();
   }
 
   paymntBox(){
@@ -141,89 +158,158 @@ class Postbox extends React.Component {
   }
 
   handlePaymntTitleChange(e){
-    /*
+    e.persist();
     this.setState({title: e.target.value});
-    */
   }
   handlePaymntDateChange(e){
-    let date = ""; /*e.target.value;*/
+    e.persist();
+    let date = e.target.value;
     let parts = date.split("-");
     let fdate = parts[2]+"/"+parts[1]+"/"+parts[0];
     this.setState({date: fdate});
   }
 
   handlePaymntDescriptionChange(e){
+    e.persist();
     this.setState(prevState => {
       let body = {...prevState.body};
-      console.log(e.target);/*
-      body.description = e.target.value;*/
+      body.description = e.target.value;
       return {body};      
     })
   }
 
   handlePaymntAmountChange(e){
+    e.persist();
     this.setState(prevState => {
       let body = {...prevState.body};
-      body.amount = "added";
+      body.amount = e.target.value;
       return {body};      
     })
   }
 
   handlePaymntActionClick(e){
+    e.persist();
     this.setState(prevState => {
-      let body = {...prevState.body};/*
-      body.action = e.target.value;*/
+      let body = {...prevState.body};
+      body.action = e.target.value;
       return {body};      
     })
   }
 
   handlePaymntSubmit(){
-    let action = "added";
-    let jon = {
-      movie:{
+    let action = this.state.action;
+    let json = {
           type: 2,
+          roomname: this.props.roomname,
+          user: this.props.user,
           title: this.state.title,
           date: action === "added"? this.getDate(): this.state.date, 
-          body: {
-            action: action,
-            amount: this.state.body.amount,
-            description: this.state.body.description,
-          }
-    }}
-    console.log(jon);
+          like: 0,
+          seen: 0,
+          body: this.state.body
+    };
+    console.log(json);
+    this.postMsg(JSON.stringify(json));
   }
+
 
   todoBox(){
     return (
       <>
         <div class="row" id="todo-titlerow">
-          <input type="text" id="todo-titlebox" placeholder=" title..."/>
+          <input type="text" onChange={this.handleTodoTitleChange} id="todo-titlebox" placeholder=" title..."/>
         </div>
         <div className="row" id="box-todoadd"> 
           <div className="col-10" id="addtodocol">
-            <input type="text" id="todobox" placeholder=" clean the dishes..."/>
+            <input type="text" id="todobox" onChange={this.handleTodoAreaChange} placeholder=" clean the dishes..."/>
           </div>
           <div className="col-2" id="addtodorow">
-            <button type="button"  style={{backgroundImage: `url(${addicon})`}} id="btn-todoadd"></button>
+            <button type="button"  style={{backgroundImage: `url(${addicon})`}} onClick={this.handleTodoAddBtnClick} id="btn-todoadd"></button>
           </div>
         </div>
         <div className="row">
-          <textarea readOnly id="box-donetodo" value=""/>
+        <input type="text" id="box-donetodo" aria-describedby="helpId" readOnly placeholder={this.state.todoprint}/>
         </div>
         <div className="btn-group row"  role="group" id="postcolumn" aria-label="Type of Message"> 
        <button type="button" style={{backgroundImage: `url(${msgicon})`}} onClick={this.handleMsgBox} className="btn-mode" id="btn-msg" ></button>
        <button type="button" style={{backgroundImage: `url(${paymnticon})`}} onClick={this.handlePaymntBox} className="btn-mode" id="btn-paymnt"></button>
        <button type="button" style={{backgroundImage: `url(${todoicon})`}} onClick={this.handleTodoBox} className="btn-mode" id="btn-todo"></button>
-       <button type="button" style={{backgroundImage: `url(${submit})`}} className="" id="btn-submit"></button> 
+       <button type="button" style={{backgroundImage: `url(${submit})`}} onClick={this.handleTodoSubmit} className="" id="btn-submit"></button> 
       </div>  
       </>
     );
+    
+  }
+  
+    
+  handleTodoTitleChange(e){
+    e.persist();
+    this.setState({title: e.target.value});
+  }
+
+  handleTodoAreaChange(e){
+    e.persist();
+    this.setState({temptodo: e.target.value});
+  }
+  
+postMsg(msg){
+  console.log(msg);
+  fetch(`/message/${this.props.roomname}`, {
+    method: 'post',
+    headers: {"Content-Type" : "application/json"},
+    body: msg })
+    .then(res => {
+      console.log(res);
+    });
+}
+
+  handleTodoSubmit(e){
+    let _date = this.getDate();
+    let json = {
+      type: 3,
+      roomname: this.props.roomname,
+      user: this.props.user,
+      title: this.state.title,
+      date: _date, 
+      like: 0,
+      seen: 0,
+      todos: this.state.todos
+  };
+  this.postMsg(JSON.stringify(json));
+}
+
+
+  handleTodoAddBtnClick(e){
+    e.persist();
+    this.setState(prevState => {
+      let temptodo = this.state.temptodo; 
+      let todos = [...prevState.todos, {item: temptodo, state: 0}];
+      console.log(this.state.todos);
+      return {todos};
+    });
+    
+    this.redoTodoPrint();
+  }
+
+  redoTodoPrint(){
+    let str;
+    this.state.todos.map(todo => {
+        str = str + "- " + todo.item + "\n";
+    })
+    this.setState({todoprint: str});
+    console.log(this.state.todoprint);
+  }
+
+  handleTodoDoneArea(e){
+    return this.state.todos.map(todo => {
+      return (
+        <p className="pre-todo"> - {todo.item} </p>
+      );
+    })
 
   }
 
-  handlePostboxChange(){
-    console.log("this is ", this);
-  }
+
 
   handleAdd(){
     this.setState({

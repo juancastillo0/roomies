@@ -28,7 +28,9 @@ class App extends Component {
                 <Menu roomname={this.state.roomname} />
               </div>
               <div className="col-5" id="messageboard">
-                <MessageBoard />
+                <MessageBoard 
+                  roomname={this.state.roomname}
+                  user={this.state.user} />
               </div>
               <div className="col" id="financialcontainer">
                 <FinancialBoard
