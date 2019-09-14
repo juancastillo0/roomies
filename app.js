@@ -19,9 +19,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "roomies-frontend/build")));
 
-app.get("/*", function(req, res) {
+app.get("*", function(_, res) {
   res.sendFile(
-    path.resolve(__dirname, "roomies-frontend", "build", "index.html")
+    path.join(__dirname, "./roomies-frontend/build/index.html"),
+    function(err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
   );
 });
 
