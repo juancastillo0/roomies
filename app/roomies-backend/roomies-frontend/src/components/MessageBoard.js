@@ -31,7 +31,6 @@ class MessageBoard extends Component {
           id: 3,
           type: 3,
           title: "To-do list",
-          text: "I created this todo in order to organize our dirt-eating days.",
           date: "15/11/2019",
           todos: [{
             item: "clean the dishes",
