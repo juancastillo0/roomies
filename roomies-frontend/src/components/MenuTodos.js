@@ -5,13 +5,21 @@ class MenuTodos extends Component {
     super(props);
 
     this.state = {
-      todoLists: [
-        { name: "Laundry", taskNum: 5 },
-        { name: "Fixes", taskNum: 2 },
-        { name: "Food", taskNum: 20 },
-        { name: "Bids", taskNum: 7 }
-      ]
+      roomname: this.props.roomname,
+      todoLists: []
     };
+  }
+
+  componentDidMount() {
+    const roomname = this.state.roomname;
+
+    fetch(`/todolists/${roomname}/`)
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          todoLists: data[0].todoLists
+        })
+      );
   }
 
   renderTodosNames() {
