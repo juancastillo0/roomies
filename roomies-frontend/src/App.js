@@ -7,11 +7,18 @@ import FinancialBoard from "./components/FinancialBoard";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      roomname: this.props.roomname,
+      user: this.props.user
+    };
+  }
   render() {
     return (
       <div>
         <header>
-          <Navbar />
+          <Navbar user={this.state.user} />
         </header>
 
         <main>
@@ -24,7 +31,10 @@ class App extends Component {
                 <MessageBoard />
               </div>
               <div className="col" id="financialcontainer">
-                <FinancialBoard />
+                <FinancialBoard
+                  roomname={this.state.roomname}
+                  user={this.state.user}
+                />
               </div>
             </div>
           </div>

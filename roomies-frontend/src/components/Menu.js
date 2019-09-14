@@ -7,6 +7,7 @@ import "./Menu.css";
 
 class Menu extends Component {
   state = {};
+
   render() {
     return (
       <div id="menu-container">
@@ -40,7 +41,7 @@ class Menu extends Component {
                   <div className="col-2">
                     <img src={Financial} alt="" id="home-icon" />
                   </div>
-                  <div className="col">Financial</div>
+                  <div className="col">Finances</div>
                 </div>
               </a>
               <a
