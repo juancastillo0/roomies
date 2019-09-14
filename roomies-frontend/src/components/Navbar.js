@@ -8,7 +8,7 @@ class Navbar extends Component {
     super(props);
 
     this.state = {
-      username: "John Guerra"
+      username: this.props.user
     };
   }
   render() {

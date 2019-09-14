@@ -5,34 +5,23 @@ class FinancialBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bills: [
-        {
-          name: "Water",
-          value: 110000,
-          expdate: "12/09/2019"
-        },
-        {
-          name: "Light",
-          value: 35000,
-          expdate: "12/09/2019"
-        },
-        {
-          name: "Food",
-          value: 45000,
-          expdate: "12/09/2019"
-        },
-        {
-          name: "Repairing",
-          value: 45000,
-          expdate: "12/09/2019"
-        },
-        {
-          name: "Fix",
-          value: 45000,
-          expdate: "12/09/2019"
-        }
-      ]
+      user: this.props.user,
+      roomname: this.props.roomname,
+      bills: []
     };
+  }
+
+  componentDidMount() {
+    const username = this.state.user;
+    const roomname = this.state.roomname;
+
+    fetch(`/${roomname}/${username}/debt`)
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          bills: data[0].bills
+        })
+      );
   }
 
   toMoney(value) {
