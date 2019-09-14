@@ -25,7 +25,7 @@ class App extends Component {
           <div className="container-fluid" id="menucontainer">
             <div className="row">
               <div className="col">
-                <Menu />
+                <Menu roomname={this.state.roomname} />
               </div>
               <div className="col-5" id="messageboard">
                 <MessageBoard />

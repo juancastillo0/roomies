@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "../App";
 import "./Login.css";
+import { runInThisContext } from "vm";
 
 class Login extends Component {
   constructor(props) {
@@ -32,10 +33,33 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    ReactDOM.render(
-      <App roomname={this.state.roomname} user={this.state.user} />,
-      document.getElementById("root")
-    );
+    fetch(`/login/${this.state.roomname}/${this.state.user}/`)
+      .then(res => res.json())
+      .then(data => {
+        if (data[0] === undefined) {
+          ReactDOM.render(
+            <div class="alert alert-danger" role="alert">
+              No haces parte del room o el room no existe
+            </div>,
+            document.getElementById("root")
+          );
+        } else if (
+          data[0].username !== this.state.user ||
+          data[0].password !== this.state.password
+        ) {
+          ReactDOM.render(
+            <div class="alert alert-danger" role="alert">
+              Usuario o contraseña incorrecta
+            </div>,
+            document.getElementById("root")
+          );
+        } else {
+          ReactDOM.render(
+            <App roomname={this.state.roomname} user={this.state.user} />,
+            document.getElementById("root")
+          );
+        }
+      });
   }
 
   render() {

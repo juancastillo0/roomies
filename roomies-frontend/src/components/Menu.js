@@ -6,7 +6,12 @@ import MenuTodos from "./MenuTodos";
 import "./Menu.css";
 
 class Menu extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      roomname: this.props.roomname
+    };
+  }
 
   render() {
     return (
@@ -66,7 +71,7 @@ class Menu extends Component {
           <h2 id="todos-brand">- - - - - - To-do List's - - - - - -</h2>
         </div>
         <div id="todos-container">
-          <MenuTodos />
+          <MenuTodos roomname={this.state.roomname} />
         </div>
       </div>
     );

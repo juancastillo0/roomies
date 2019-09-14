@@ -15,7 +15,7 @@ class FinancialBoard extends Component {
     const username = this.state.user;
     const roomname = this.state.roomname;
 
-    fetch(`/${roomname}/${username}/debt`)
+    fetch(`/debt/${roomname}/${username}/`)
       .then(res => res.json())
       .then(data =>
         this.setState({

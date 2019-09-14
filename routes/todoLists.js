@@ -14,17 +14,15 @@ client.connect(function(err, client) {
   console.log("Connected to mongo atlas...");
 });
 
-router.get("/debt/:roomname/:user/", function(req, res, next) {
+router.get("/:roomname", function(req, res, next) {
   const db = client.db("roomies");
-  const bills = db.collection("bills");
+  const bills = db.collection("todolists");
 
-  bills
-    .find({ roomname: req.params.roomname, user: req.params.user })
-    .toArray((err, data) => {
-      if (err) throw err;
+  bills.find({ roomname: req.params.roomname }).toArray((err, data) => {
+    if (err) throw err;
 
-      res.json(data);
-    });
+    res.json(data);
+  });
 });
 
 module.exports = router;
