@@ -10,8 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomname: "room-1",
-      user: "John Guerra"
+      roomname: this.props.roomname,
+      user: this.props.user
     };
   }
   render() {
