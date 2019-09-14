@@ -8,19 +8,28 @@ class MessageBoard extends Component {
     super(props);
 
     this.state = {
-      movies: [
+      roomname: this.props.roomname,
+      messages: [
         {
           id: 1,
           type: 1,
+          roomname: "room-1",
           title : "Msg Card",
           text: "Gregorio Ospina es un increiblemente Gregorio Ospina es un Gregorio Ospina es un increiblemente pesimo hola como va wvweything increiblemente pesimo hola como va wvweything pesimo hola como va wvweything",
-          date: "15/11/2019"
+          date: "15/11/2019",
+          user: "John Guerra",
+          like: 3,
+          seen: 5
         },
         {
           id: 2,
           type: 2,
+          roomname: "room-1",
           title: "Payment Update",
           date: "15/11/2019",
+          user: "John Guerra",
+          like: 3,
+          seen: 5,
           body: {
             action: "added",
             amount: "10000",
@@ -30,8 +39,12 @@ class MessageBoard extends Component {
         {
           id: 3,
           type: 3,
+          roomname: "room-1",
           title: "To-do list",
           date: "15/11/2019",
+          user: "John Guerra",
+          like: 3,
+          seen: 5,
           todos: [{
             item: "clean the dishes",
             status: 0
@@ -50,27 +63,26 @@ class MessageBoard extends Component {
   }
 
   componentDidMount() {
-    /*
-    fetch("/data")
+    fetch(`/${this.state.roomname}/messages`)
       .then(res => res.json())
-      .then(movies => this.setState({ movies: movies }));
-      */
+      .then(messages => this.setState({ messages: messages }))
+      .then(console.log(this.state.messages));
   }
 
   renderTest() {
-    return this.state.movies.map(m => <h3>{m.title}</h3>);
+    return this.state.messages.map(m => <h3>{m.title}</h3>);
   }
 
   renderMessages(){
-    return this.state.movies.map(movie => {
-      return <Message movie={movie} key={movie.id} />
+    return this.state.messages.map(message => {
+      return <Message message={message} key={message._id} />
     })
   }
 
   render() {
     return (
       <div id="messageboard">
-        <Postbox roomname={this.state.movies[0].title}/>
+        <Postbox roomname={this.props.roomname} user={this.props.user}/>
           <div id="cards-container">
             {this.renderMessages()}
           </div>

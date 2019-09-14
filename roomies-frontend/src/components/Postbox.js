@@ -36,9 +36,10 @@ class Postbox extends React.Component {
    this.handleTodoDoneArea = this.handleTodoDoneArea.bind(this);
    this.handleTodoTitleChange = this.handleTodoTitleChange.bind(this);
 
-
-
-
+   this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
+   this.postMsg = this.postMsg.bind(this);
+   this.redoTodoPrint = this.redoTodoPrint.bind(this);
+ 
    this.state = {
      add: 1,
      postbox: this.msgBox(),
@@ -100,17 +101,22 @@ class Postbox extends React.Component {
 
   handleMsgModSubmit(){
 
-    let jon = {
+    let json = {
       type: 1,
+      roomname: this.props.roomname,
+      user: this.props.user,
+      like: 0,
+      seen: 0,
       text: this.state.msg,
       date: this.getDate()
     };
-    console.log(jon);
+    this.postMsg(JSON.stringify(json));
+
   }
 
   getDate(){
     let date = new Date();
-    return date.getDate + "/" + date.getMonth+ "/" +date.getFullYear;
+    return date.getDate() + "/" + date.getMonth() + "/" +date.getFullYear();
   }
 
   paymntBox(){
@@ -191,20 +197,21 @@ class Postbox extends React.Component {
   }
 
   handlePaymntSubmit(){
-    let action = "added";
-    let jon = {
-      movie:{
+    let action = this.state.action;
+    let json = {
           type: 2,
+          roomname: this.props.roomname,
+          user: this.props.user,
           title: this.state.title,
           date: action === "added"? this.getDate(): this.state.date, 
-          body: {
-            action: action,
-            amount: this.state.body.amount,
-            description: this.state.body.description,
-          }
-    }}
-    console.log(jon);
+          like: 0,
+          seen: 0,
+          body: this.state.body
+    };
+    console.log(json);
+    this.postMsg(JSON.stringify(json));
   }
+
 
   todoBox(){
     return (
@@ -227,13 +234,14 @@ class Postbox extends React.Component {
        <button type="button" style={{backgroundImage: `url(${msgicon})`}} onClick={this.handleMsgBox} className="btn-mode" id="btn-msg" ></button>
        <button type="button" style={{backgroundImage: `url(${paymnticon})`}} onClick={this.handlePaymntBox} className="btn-mode" id="btn-paymnt"></button>
        <button type="button" style={{backgroundImage: `url(${todoicon})`}} onClick={this.handleTodoBox} className="btn-mode" id="btn-todo"></button>
-       <button type="button" style={{backgroundImage: `url(${submit})`}} className="" id="btn-submit"></button> 
+       <button type="button" style={{backgroundImage: `url(${submit})`}} onClick={this.handleTodoSubmit} className="" id="btn-submit"></button> 
       </div>  
       </>
     );
-
+    
   }
-
+  
+    
   handleTodoTitleChange(e){
     e.persist();
     this.setState({title: e.target.value});
@@ -243,6 +251,33 @@ class Postbox extends React.Component {
     e.persist();
     this.setState({temptodo: e.target.value});
   }
+  
+postMsg(msg){
+  console.log(msg);
+  fetch(`/message/${this.props.roomname}`, {
+    method: 'post',
+    headers: {"Content-Type" : "application/json"},
+    body: msg })
+    .then(res => {
+      console.log(res);
+    });
+}
+
+  handleTodoSubmit(e){
+    let _date = this.getDate();
+    let json = {
+      type: 3,
+      roomname: this.props.roomname,
+      user: this.props.user,
+      title: this.state.title,
+      date: _date, 
+      like: 0,
+      seen: 0,
+      todos: this.state.todos
+  };
+  this.postMsg(JSON.stringify(json));
+}
+
 
   handleTodoAddBtnClick(e){
     e.persist();
@@ -254,11 +289,10 @@ class Postbox extends React.Component {
     });
     
     this.redoTodoPrint();
-    React.render();
   }
 
   redoTodoPrint(){
-    let str = "";
+    let str;
     this.state.todos.map(todo => {
         str = str + "- " + todo.item + "\n";
     })
