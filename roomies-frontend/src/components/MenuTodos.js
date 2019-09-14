@@ -18,7 +18,7 @@ class MenuTodos extends Component {
     return this.state.todoLists.map(todolist => {
       return (
         <a
-          href="#filter-financial"
+          href={todolist.name}
           className="list-group-item d-flex justify-content-between align-items-center todolistmenu"
         >
           {todolist.name}

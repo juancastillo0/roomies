@@ -8,7 +8,7 @@ class FinancialBoard extends Component {
       bills: [
         {
           name: "Water",
-          value: 150000,
+          value: 110000,
           expdate: "12/09/2019"
         },
         {
@@ -98,7 +98,7 @@ class FinancialBoard extends Component {
   totalDebt() {
     let debt = 0;
     this.state.bills.map(bill => {
-      debt += bill.value;
+      return (debt += bill.value);
     });
     return debt;
   }
