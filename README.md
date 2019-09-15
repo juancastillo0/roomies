@@ -11,7 +11,7 @@ This project is created for roomates. It helps to keep track of the finances and
 
 ## Demo
 https://approomies.herokuapp.com/
-**Fill the login with the following credentials:**
+- **Fill the login with the following credentials:**
 - Room-name: room-1
 - Username: John Guerra
 - Password: 12345
