@@ -22,10 +22,15 @@ class MenuTodos extends Component {
       );
   }
 
+  random(){
+    return Math.floor(Math.random()*13000);
+  }
+
   renderTodosNames() {
     return this.state.todoLists.map(todolist => {
       return (
         <a
+          key={this.random()}
           href="/"
           className="list-group-item d-flex justify-content-between align-items-center todolistmenu"
         >

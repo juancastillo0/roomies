@@ -123,7 +123,7 @@ class Postbox extends React.Component {
   paymntBox(){
     return(
       <>
-      <div class="row" id="todo-titlerow" >
+      <div className="row" id="todo-titlerow" >
           <div className="col-6">
             <input type="text" id="todo-titlebox" onChange={this.handlePaymntTitleChange} placeholder=" title..."/>
           </div>
@@ -217,7 +217,7 @@ class Postbox extends React.Component {
   todoBox(){
     return (
       <>
-        <div class="row" id="todo-titlerow">
+        <div className="row" id="todo-titlerow">
           <input type="text" onChange={this.handleTodoTitleChange} id="todo-titlebox" placeholder=" title..."/>
         </div>
         <div className="row" id="box-todoadd"> 
@@ -291,9 +291,9 @@ postMsg(msg){
 
   redoTodoPrint(){
     let str;
-    this.state.todos.map(todo => {
-        str = str + "- " + todo.item + "\n";
-    })
+    this.state.todos.map(todo => 
+        str = str + "- " + todo.item + "\n"
+    )
     this.setState({todoprint: str});
     console.log(this.state.todoprint);
   }

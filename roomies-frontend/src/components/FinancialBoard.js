@@ -42,6 +42,10 @@ class FinancialBoard extends Component {
     return value.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,");
   }
 
+  random(){
+    return Math.floor(Math.random()*13000);
+  }
+
   renderBills() {
     return this.state.bills.map(bill => {
       return (
@@ -53,6 +57,7 @@ class FinancialBoard extends Component {
           aria-expanded="true"
           aria-controls="collapseOne"
           id="bill-card"
+          key = {this.random()}
         >
           <div className="card-header" id="headingOne">
             <div className="row">

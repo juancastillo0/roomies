@@ -13,6 +13,10 @@ class Menu extends Component {
     };
   }
 
+  random(){
+    return Math.floor(Math.random()*13000);
+  }
+
   render() {
     return (
       <div id="menu-container">
@@ -71,7 +75,7 @@ class Menu extends Component {
           <h2 id="todos-brand">- - - - - - To-do List's - - - - - -</h2>
         </div>
         <div id="todos-container">
-          <MenuTodos roomname={this.state.roomname} />
+          <MenuTodos roomname={this.state.roomname} key={this.random()} />
         </div>
       </div>
     );

@@ -25,7 +25,7 @@ class Message extends React.Component{
   render() {
     return(
     <div className="card text-left msg-card"> 
-      <div class="msg-img-cover">
+      <div className="msg-img-cover">
         <img className="card-img-top msg-img" id={this.agregarImgId()} src={this.chooseImg()} alt={this.props.message.imgalt}/>
       </div>
       <div className="card-body msgcardbody">
@@ -43,19 +43,17 @@ class Message extends React.Component{
     };
 
   msg_mod(){
-    var likebtn = {
-      backgroundImage: 'url(' + like + ')'
-    };
+
     return (
     <>
       <h4 className="card-title">{this.props.message.user}</h4>
       <p>{this.props.message.text}</p>
-      <div class="row" id="reaction-row">
-        <button type="button" onClick={this.updateLike.bind(this)} style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" id="like" ></button>
+      <div className="row" id="reaction-row">
+        <button type="button" onClick={this.updateLike.bind(this)} style={{backgroundImage: `url(${like})`}} className="btn-reaction reaction-margin" id="like" ></button>
         <label htmlFor="like" id="reaction-label">{this.state.like}</label>
-        <button type="button" onClick={this.updateSeen.bind(this)} style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" id="seen" ></button>
+        <button type="button" onClick={this.updateSeen.bind(this)} style={{backgroundImage: `url(${seen})`}} className="btn-reaction reaction-margin" id="seen" ></button>
         <label htmlFor="seen" id="reaction-label">{this.state.seen}</label>
-        <p class="reaction-date reaction-margin">  {this.props.message.date} </p>
+        <p className="reaction-date reaction-margin">  {this.props.message.date} </p>
       </div>
     </>
     )
@@ -79,12 +77,12 @@ class Message extends React.Component{
             <h2 style={{color: this.props.message.body.action === "added"?"rgb(73, 190, 92)":"rgb(202, 66, 66)"}}> {this.color_paymnt()} </h2>
         </div> 
         <p className="card-text">{this.props.message.body.description}</p>
-        <div class="row" id="reaction-row">
-          <button type="button" onClick={this.updateLike.bind(this)} style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" id="like" ></button>
+        <div className="row" id="reaction-row">
+          <button type="button" onClick={this.updateLike.bind(this)} style={{backgroundImage: `url(${like})`}} className="btn-reaction reaction-margin" id="like" ></button>
           <label htmlFor="like" id="reaction-label">{this.state.like}</label>
-          <button type="button" onClick={this.updateSeen.bind(this)} style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" id="seen" ></button>
+          <button type="button" onClick={this.updateSeen.bind(this)} style={{backgroundImage: `url(${seen})`}} className="btn-reaction reaction-margin" id="seen" ></button>
           <label htmlFor="seen" id="reaction-label">{this.state.seen}</label>
-          <p class="reaction-date reaction-margin">  {this.props.message.date} </p>
+          <p className="reaction-date reaction-margin">  {this.props.message.date} </p>
       </div>
        </>
     );
@@ -96,13 +94,11 @@ class Message extends React.Component{
   }
 
   updateStatus(e){
-    console.log(this.props);
-    console.log(e.target.value);
+
     let value = e.target.value;
-    this.props.message.todos.map(todo => {
+    this.props.message.todos.map(function(todo){
       if(todo.item === value){
         todo.status = todo.status === 1? 0: 1;
-        console.log(this.props.message.todos);
       }
     })
     this.forceTheUpdate();
@@ -117,8 +113,10 @@ class Message extends React.Component{
         const status = todo.status === 1? "👍🏻":"🆗";
         return (
           <>
-          <button type="button" style={{color: todo.status === 1? "grey" : "white"}} onClick={this.updateStatus.bind(this)} class="p-todo" value={todo.item}> {todo.item} {status}  </button>
-          <hr class="linea-todo"/>
+          <div key={this.props.message._id}>
+          <button type="button" style={{color: todo.status === 1? "grey" : "white"}} onClick={this.updateStatus.bind(this)} className="p-todo" value={todo.item}> {todo.item} {status}  </button>
+          <hr className="linea-todo"/>
+          </div>
           </>
         );
     })
@@ -131,12 +129,12 @@ class Message extends React.Component{
         <div id="todo-mod">
           {this.showTodos()}
         </div> 
-        <div class="row" id="reaction-row">
-          <button type="button" onClick={this.updateLike.bind(this)} style={{backgroundImage: `url(${like})`}} class="btn-reaction reaction-margin" id="like" ></button>
+        <div className="row" id="reaction-row">
+          <button type="button" onClick={this.updateLike.bind(this)} style={{backgroundImage: `url(${like})`}} className="btn-reaction reaction-margin" id="like" ></button>
           <label htmlFor="like" id="reaction-label">{this.state.like}</label>
-          <button type="button" onClick={this.updateSeen.bind(this)} style={{backgroundImage: `url(${seen})`}} class="btn-reaction reaction-margin" id="seen" ></button>
+          <button type="button" onClick={this.updateSeen.bind(this)} style={{backgroundImage: `url(${seen})`}} className="btn-reaction reaction-margin" id="seen" ></button>
           <label htmlFor="seen" id="reaction-label">{this.state.seen}</label>
-          <p class="reaction-date reaction-margin">  {this.props.message.date} </p>
+          <p className="reaction-date reaction-margin">  {this.props.message.date} </p>
         </div>
       </>
     );

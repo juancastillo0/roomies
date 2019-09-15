@@ -37,7 +37,7 @@ class Login extends Component {
       .then(data => {
         if (data[0] === undefined) {
           ReactDOM.render(
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
               No haces parte del room o el room no existe
             </div>,
             document.getElementById("root")
@@ -47,7 +47,7 @@ class Login extends Component {
           data[0].password !== this.state.password
         ) {
           ReactDOM.render(
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
               Usuario o contraseña incorrecta
             </div>,
             document.getElementById("root")
