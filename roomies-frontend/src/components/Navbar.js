@@ -14,11 +14,11 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar fixed-top" id="menubar">
-        <a className="navbar-brand" href="/#">
+        <a className="navbar-brand" href="/#" id="navbar">
           <img
             src={Logo}
             className="d-inline-block align-top"
-            alt=""
+            alt="navbarlogo"
             id="logo"
           />
           Roomies

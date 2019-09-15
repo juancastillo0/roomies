@@ -24,6 +24,20 @@ class FinancialBoard extends Component {
       );
   }
 
+  payBill(name, data) {
+    const username = this.state.user;
+    const roomname = this.state.roomname;
+
+    fetch(`/debt/${roomname}/${username}/${name}/`, {
+      method: "put",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+  }
+
   toMoney(value) {
     return value.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,");
   }
@@ -32,6 +46,7 @@ class FinancialBoard extends Component {
     return this.state.bills.map(bill => {
       return (
         <div
+          onChange={() => this.forceUpdate()}
           className="card"
           data-toggle="collapse"
           data-target={"#collapseOne" + bill.name}
@@ -72,6 +87,10 @@ class FinancialBoard extends Component {
                     type="button"
                     className="btn btn-success"
                     id="btn-pay-bill"
+                    onClick={() => {
+                      this.payBill(bill.name, bill);
+                      this.forceUpdate();
+                    }}
                   >
                     Pay
                   </button>
