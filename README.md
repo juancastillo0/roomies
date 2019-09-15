@@ -11,6 +11,10 @@ This project is created for roomates. It helps to keep track of the finances and
 
 ## Demo
 https://approomies.herokuapp.com/
+**Fill the login with the following credentials:**
+- Room-name: room-1
+- Username: John Guerra
+- Password: 12345
 
 ## Technologies
 This proyect was developed using the MERN-Stack
@@ -59,7 +63,7 @@ npm run build
 This will build the static files that the server is going to present
 
 ## To see the app go to **localhost:3001**
-**Fill the login with the following gredentials:**
+**Fill the login with the following credentials:**
 - Room-name: room-1
 - Username: John Guerra
 - Password: 12345
