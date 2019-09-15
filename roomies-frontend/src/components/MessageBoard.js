@@ -72,9 +72,13 @@ class MessageBoard extends Component {
     return this.state.messages.map(m => <h3>{m.title}</h3>);
   }
 
+  random(){
+    return Math.floor(Math.random()*9999999);
+  }
+
   renderMessages(){
     return this.state.messages.slice(0).reverse().map(message => {
-      return <Message message={message} key={message._id} />
+      return <Message message={message} key={this.random()}/>
     })
   }
 

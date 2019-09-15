@@ -10,11 +10,6 @@ class TodoPreview extends React.Component{
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    this.setState({todoprint: nextProps});
-  }
-
-
   render(){  
     console.log(this.props);
     return (

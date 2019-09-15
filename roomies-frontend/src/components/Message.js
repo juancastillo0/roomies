@@ -100,6 +100,7 @@ class Message extends React.Component{
       if(todo.item === value){
         todo.status = todo.status === 1? 0: 1;
       }
+      return 0;
     })
     this.forceTheUpdate();
   }
@@ -108,15 +109,17 @@ class Message extends React.Component{
     this.forceUpdate();
   }
 
+  random(){
+    return Math.floor(Math.random()*87000);
+  }
+
   showTodos(){
     return this.props.message.todos.slice(0).reverse().map(todo =>{
         const status = todo.status === 1? "👍🏻":"🆗";
         return (
           <>
-          <div key={this.props.message._id}>
-          <button type="button" style={{color: todo.status === 1? "grey" : "white"}} onClick={this.updateStatus.bind(this)} className="p-todo" value={todo.item}> {todo.item} {status}  </button>
+          <button  type="button" style={{color: todo.status === 1? "grey" : "white"}} onClick={this.updateStatus.bind(this)} className="p-todo" value={todo.item}> {todo.item} {status}  </button>
           <hr className="linea-todo"/>
-          </div>
           </>
         );
     })

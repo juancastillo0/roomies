@@ -31,6 +31,18 @@ router.get("/debt/:roomname/:user/", function(req, res, next) {
     });
 });
 
+router.post("/debt/:roomname/", (req, res)=>{
+  const db = client.db("roomies");
+  const bills = db.collection("bills");
+  let change = req.body;
+
+  messages.insertOne(change, (err, res)=>{
+    if(err) throw err;
+
+    res.send("item agregado a la coleccion de bills");
+  });
+})
+
 router.put("/debt/:roomname/:user/:name", function(req, res) {
   const db = client.db("roomies");
   const bills = db.collection("bills");

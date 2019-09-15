@@ -152,7 +152,7 @@ class Postbox extends React.Component {
        <button type="button" style={{backgroundImage: `url(${msgicon})`}} onClick={this.handleMsgBox} className="btn-mode" id="btn-msg" ></button>
        <button type="button" style={{backgroundImage: `url(${paymnticon})`}} onClick={this.handlePaymntBox} className="btn-mode" id="btn-paymnt"></button>
        <button type="button" style={{backgroundImage: `url(${todoicon})`}} onClick={this.handleTodoBox} className="btn-mode" id="btn-todo"></button>
-       <button type="button" style={{backgroundImage: `url(${submit})`}} onClick={this.handlePaymntSubmit} className="" id="btn-submit"></button> 
+       <button type="submit" style={{backgroundImage: `url(${submit})`}} onClick={this.handlePaymntSubmit} className="" id="btn-submit"></button> 
       </div>  
       </>
     );
