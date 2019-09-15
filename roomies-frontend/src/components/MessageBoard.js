@@ -11,7 +11,7 @@ class MessageBoard extends Component {
       roomname: this.props.roomname,
       messages: [
         {
-          id: 1,
+          _id: 1,
           type: 1,
           roomname: "room-1",
           title : "Msg Card",
@@ -22,7 +22,7 @@ class MessageBoard extends Component {
           seen: 5
         },
         {
-          id: 2,
+          _id: 2,
           type: 2,
           roomname: "room-1",
           title: "Payment Update",
@@ -37,7 +37,7 @@ class MessageBoard extends Component {
           }
         },
         {
-          id: 3,
+          _id: 3,
           type: 3,
           roomname: "room-1",
           title: "To-do list",
@@ -65,8 +65,7 @@ class MessageBoard extends Component {
   componentDidMount() {
     fetch(`/${this.state.roomname}/messages`)
       .then(res => res.json())
-      .then(messages => this.setState({ messages: messages }))
-      .then(console.log(this.state.messages));
+      .then(messages => this.setState({ messages: messages }));
   }
 
   renderTest() {
@@ -74,14 +73,49 @@ class MessageBoard extends Component {
   }
 
   renderMessages(){
-    return this.state.messages.map(message => {
+    return this.state.messages.slice(0).reverse().map(message => {
       return <Message message={message} key={message._id} />
     })
   }
 
-  render() {
-    return (
-      <div id="messageboard">
+  /*
+
+  reactionUpdate(reaction, id){
+    let msg = this.state.messages.filter(message => message.id === id);
+    let index = this.state.messages.indexOf(msg);
+    console.log(msg);
+    console.log(index);
+    this.setState(prevState => {
+      let msgs = {...prevState.messages};
+      if(reaction === "like"){
+        msgs[index].like = msgs[index].like + 1;
+      } else {
+        msgs[index].seen = msgs[index].seen + 1;
+      }
+      return {msgs};
+    })
+  }
+  
+  statusChange(id){
+    let m = this.state.messages.find(message => {
+      return message._id === id;
+    });
+    this.setState(prevState => {
+      let msg = {...prevState.messages};
+      let index = Object.keys(msg).map(e => {return e._id}).indexOf(m._id);
+      console.log(index);
+      console.log(msg);
+      console.log(m);
+      msg[index].status = msg[index].status === 1? 0 : 1;
+
+      return {msg};
+    })
+ } 
+ */
+ 
+ render() {
+   return (
+     <div id="messageboard">
         <Postbox roomname={this.props.roomname} user={this.props.user}/>
           <div id="cards-container">
             {this.renderMessages()}

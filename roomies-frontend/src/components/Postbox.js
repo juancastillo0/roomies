@@ -5,6 +5,7 @@ import msgicon from '../images/msg.png';
 import paymnticon from '../images/paymnt.png';
 import submit from '../images/submit.png';
 import addicon from '../images/add.png';
+import TodoPreview from './TodoPreview.js'
 
 
 
@@ -107,7 +108,7 @@ class Postbox extends React.Component {
       user: this.props.user,
       like: 0,
       seen: 0,
-      text: this.state.msg,
+      text: this.state.text,
       date: this.getDate()
     };
     this.postMsg(JSON.stringify(json));
@@ -227,9 +228,7 @@ class Postbox extends React.Component {
             <button type="button"  style={{backgroundImage: `url(${addicon})`}} onClick={this.handleTodoAddBtnClick} id="btn-todoadd"></button>
           </div>
         </div>
-        <div className="row">
-        <input type="text" id="box-donetodo" aria-describedby="helpId" readOnly placeholder={this.state.todoprint}/>
-        </div>
+        <TodoPreview content={this.state.todoprint}/>
         <div className="btn-group row"  role="group" id="postcolumn" aria-label="Type of Message"> 
        <button type="button" style={{backgroundImage: `url(${msgicon})`}} onClick={this.handleMsgBox} className="btn-mode" id="btn-msg" ></button>
        <button type="button" style={{backgroundImage: `url(${paymnticon})`}} onClick={this.handlePaymntBox} className="btn-mode" id="btn-paymnt"></button>
@@ -284,7 +283,6 @@ postMsg(msg){
     this.setState(prevState => {
       let temptodo = this.state.temptodo; 
       let todos = [...prevState.todos, {item: temptodo, state: 0}];
-      console.log(this.state.todos);
       return {todos};
     });
     

@@ -21,6 +21,11 @@
   border-width: 1px;
 }
 
+#reaction-label{
+  margin-left: 5pt;
+  color: var(--clr-4);
+}
+
 .msg-card{
   box-sizing: border-box;
   margin: 1em;
@@ -232,6 +237,9 @@
   border-top: dashed 1px;
 }
 .p-todo{
+  background-image: none;
+  background: none;
+  border: none;
   margin-top: 3px;
   margin-bottom: 3px;
 }
