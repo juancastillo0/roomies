@@ -9,9 +9,9 @@ const client = new MongoClient(uri);
 client.connect(function(err, client) {
   if (err) {
     console.log("Error occurred while connecting to MongoDB Atlas...\n", err);
+  } else {
+    console.log("Connected to mongo atlas...");
   }
-
-  console.log("Connected to mongo atlas...");
 });
 
 router.get("/:roomname/:username/", function(req, res, next) {
